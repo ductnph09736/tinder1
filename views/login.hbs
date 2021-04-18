@@ -297,17 +297,13 @@
                                             <label for="user" class="label">Email hoặc số điện thoại</label>
                                             <input id="email" type="email" class="form-control is-invalid" required name="mail_sdt">
                                         </div>
-                                        <div class="group">
-                                            <label for="user" class="label">Giới Tính</label>
-                                            <div class="form-check">
-
-                                                <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
-                                                <label class="form-check-label" for="validationFormCheck2">Nam</label>
-                                            </div>
-                                            <div class="form-check group">
-                                                <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
-                                                <label class="form-check-label" for="validationFormCheck3">Nữ</label>
-                                            </div>
+                                        <div class="form-group col-md-6">
+                                            <label class="small mb-1" for="inputGender">Giới tính</label>
+                                            <select id="inputGender" name="sex" class="form-control">
+                                                <option selected>Nam</option>
+                                                <option>Nữ</option>
+                                                <option>Khác</option>
+                                            </select>
                                         </div>
                                         <div class="group">
                                             <label for="validationTextarea" class="label">Giới Thiệu Ngắn</label>
@@ -360,12 +356,11 @@
                                             <div class="invalid-feedback">Bạn Có Đồng Ý Với Tất Cả Điều Khoảng Của Công Ty Về Ứng Dụng Không?</div>
                                         </div>
                                         <button type="submit" class="btn">Thêm</button>
+                                        <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
                                     </form>
-                                    <div class="hr"></div>
+
                                 </div>
-                                <div class="modal-footer row">
-                                    <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
-                                </div>
+
                             </div>
 
                         </div>
@@ -382,6 +377,7 @@
                 <div class="user"><div>{{this.username}}</div></div>
                 <div class="text"><div>{{this.date}}</div></div>
                 <div class="text"><div>{{this.mail_sdt}}</div></div>
+                <div class="text"><div>{{this.sex}}</div></div>
                 <div class="text"><div>{{this.introduce_yourself}}</div></div>
             </div>
             <div class="message">

@@ -42,6 +42,7 @@ var user = new mongoose.Schema({
   username: String,
   date: String,
   mail_sdt: String,
+  sex: String,
   introduce_yourself: String,
   avartar : String,
 })
@@ -76,6 +77,7 @@ router.post('/login', function (req,res){
         username: req.body.username,
         date: req.body.date,
         mail_sdt: req.body.mail_sdt,
+        sex : req.body.sex,
         introduce_yourself: req.body.introduce_yourself,
         avartar: req.file.filename,
     }).save(function (err){
@@ -132,6 +134,7 @@ router.post('/updateUser',function (req,res) {
           username: req.body.usernameUD,
           date: req.body.dateUD,
           mail_sdt: req.body.mail_sdtUD,
+          sex : req.body.sex,
           introduce_yourself: req.body.introduce_yourselfUD,
         },function (err) {
           if(err){
@@ -147,6 +150,7 @@ router.post('/updateUser',function (req,res) {
           username: req.body.usernameUD,
           date: req.body.dateUD,
           mail_sdt: req.body.mail_sdtUD,
+          sex : req.body.sex,
           introduce_yourself: req.body.introduce_yourselfUD,
           avartar: req.file.filename,
         },function (err) {
