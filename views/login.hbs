@@ -1,0 +1,430 @@
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        background-color: #b02a37;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        display: inline-flex;
+    }
+    .container {
+        display: flex;
+        margin: 0;
+    }
+    .side {
+        min-width: 360px;
+        height: 200px;
+        background-color: #fff;
+        height: 100%;
+        min-height: 100vh;
+        border-right: 1px solid #e1e1e1;
+    }
+    .content {
+        width: 100%;
+        display: flex;
+        padding: 20px 0;
+        align-items: center;
+        flex-direction: column;
+        margin-left: 400px;
+    }
+    .side .header {
+        /*background: linear-gradient(262deg, #ff7854, #fd267d);*/
+        background:gray;
+        width: 100%;
+        height: 80px;
+        box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .side .header .avatar img {
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        border: 2px solid #fff;
+        box-shadow: 0 1px 8px 0 rgba(0, 20, 20, 0.2);
+    }
+
+    .side .header .title {
+        padding: 0 10px;
+        color: #fff;
+        font-size: 23px;
+    }
+
+    .side .menu ul {
+        display: flex;
+        padding: 0 20px;
+    }
+
+    .side .menu ul li {
+        list-style: none;
+        margin: 0 10px;
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
+
+    .side .menu .active {
+        /*border-bottom: 3px solid #fd5068;*/
+        padding-bottom: 2px;
+        border-bottom: 3px solid gray;
+    }
+
+    .side .messages {
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        transition: 0.2s box-shadow;
+    }
+
+    .side .messages .avatar img {
+        width: 70px;
+        height: 70px;
+        border-radius: 70px;
+    }
+
+    .side .messages .user {
+        padding: 0 10px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        font-size: 18px;
+    }
+
+    .side .messages .text {
+        width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0 10px;
+        font-weight: 300;
+        font-size: 15px;
+        opacity: 0.8;
+    }
+
+    .side .messages:hover {
+        box-shadow: 0 0 15px 0 rgba(43, 78, 78, 0.1);
+        /*border-right: 5px solid #fd5068;*/
+        border-right: 5px solid gray;
+    }
+
+    .container .card {
+        position: relative;
+        height: 450px;
+    }
+
+    .content .card .user {
+        width: 380px;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 10px;
+        box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.5);
+
+    }
+
+    .content .card .user .profile {
+        position: absolute;
+        bottom: 0px;
+        left: 20px;
+    }
+
+    .content .card .user .name {
+        color: #fff;
+        font-size: 32px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-shadow: 1px 1px 5px #444;
+    }
+
+    .content .card .user .name span {
+        font-size: 26px;
+    }
+
+    .content .card .local {
+        display: flex;
+        align-items: center;
+        padding: 0 0 20px 0;
+    }
+
+    .content .card .local i {
+        margin: 5px 0;
+        color: #fff;
+    }
+
+    .content .card .local span {
+        color: #fff;
+        padding: 0 10px;
+        text-shadow: 1px 1px 5px #444;
+    }
+
+    .content .buttons {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .content .buttons .no i {
+        color: #fd2e79;
+        font-size: 33px;
+    }
+
+    .content .buttons .star i {
+        color: #2bb1ff;
+        font-size: 22px;
+    }
+
+    .content .buttons .heart i {
+        color: #11e298;
+        font-size: 32px;
+    }
+
+    .content .buttons .no,
+    .content .buttons .star,
+    .content .buttons .heart {
+        background-color: #fff;
+        width: 70px;
+        height: 70px;
+        box-shadow: 0 1px 10px 0 rgba(0, 20, 20, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 70px;
+        margin: 4px;
+        transition: 0.2s transform;
+    }
+
+    .content .buttons .no:hover,
+    .content .buttons .star:hover,
+    .content .buttons .heart:hover {
+        transform: scale(1.1);
+    }
+
+    .content .buttons .star {
+        width: 60px;
+        height: 60px;
+    }
+    .modal-dialog.modal-dialog-centered{
+        width: 100%;
+        max-width:510px;
+        min-height:600px;
+        box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+    }
+    .modal-content{
+        width:100%;
+        height:1170px;
+        position:absolute;
+        padding:90px 70px 50px 70px;
+        background-color: rgba(255, 255, 255, 1);
+    }
+    .modal-title{
+        color: white;
+    }
+    .btn{
+        margin-top: 5px;
+        width:150px;
+        color:#fff;
+        border:none;
+        padding:15px 20px;
+        border-radius:25px;
+        background:rgba(255,255,255,.1);
+        background:black;
+        font-size: 15px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        margin-right: 10px;
+    }
+    .btn:hover{
+        background:#4f5050;
+        color: black;
+    }
+    .modal-body .group{
+        margin-bottom:15px;
+    }
+    .group .btn-outline-dark{
+        color: black;
+        background-color: white;
+        border-radius: 10px;
+        border: black solid 1px;
+    }
+    .modal-body .group .label{
+        width:100%;
+        color:white;
+        display:block;
+        margin-bottom: 5px;
+
+    }
+</style>
+
+
+<div class="container">
+    <div class="side" style="margin-left: -70px;margin-top: -50px">
+        <div class="header">
+            <div class="avatar">
+                <img src="team_7.jpg" alt="" />
+            </div>
+            <div class="title">Cá nhân</div>
+        </div>
+        <div class="menu">
+            <ul>
+
+                <li class="active">Danh sách người dùng</li>
+                <li><a href="#plus" class="fas fa-plus" class="btn btn-primary" data-bs-toggle="modal"></a></li>
+                <div class="modal fade " id="plus" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" style="max-width: 800px">
+                        <div class="modal-content" style="background-color: gray">
+                            <div class="modal-header align-items-center">
+                                <img src="logofooterx2-1.png" width="100px" class="logo-1">
+                                <h5 class="modal-title" id="staticBackdropLabel-2" style="margin-left: 20px">ĐĂNG KÝ</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="sign-up-htm">
+
+                                    <form class="was-validated" action="/login" enctype="multipart/form-data" method="post">
+                                        <div class="group">
+                                            <label for="user" class="label">Họ Và Tên</label>
+                                            <input id="fullname" type="text" class="form-control is-invalid" name="username" required>
+
+                                        </div>
+                                        <div class="group">
+                                            <label for="user" class="label">Ngày Sinh</label>
+                                            <input id="birthday" type="date" class="form-control is-invalid" required name="date">
+
+                                        </div>
+                                        <div class="group">
+                                            <label for="user" class="label">Email hoặc số điện thoại</label>
+                                            <input id="email" type="email" class="form-control is-invalid" required name="mail_sdt">
+                                        </div>
+                                        <div class="group">
+                                            <label for="user" class="label">Giới Tính</label>
+                                            <div class="form-check">
+
+                                                <input type="radio" class="form-check-input" id="validationFormCheck2" name="radio-stacked" required>
+                                                <label class="form-check-label" for="validationFormCheck2">Nam</label>
+                                            </div>
+                                            <div class="form-check group">
+                                                <input type="radio" class="form-check-input" id="validationFormCheck3" name="radio-stacked" required>
+                                                <label class="form-check-label" for="validationFormCheck3">Nữ</label>
+                                            </div>
+                                        </div>
+                                        <div class="group">
+                                            <label for="validationTextarea" class="label">Giới Thiệu Ngắn</label>
+                                            <textarea class="form-control is-invalid" id="validationTextarea"   required name="introduce_yourself"></textarea>
+                                        </div>
+                                        <div class="group row">
+                                            <label for="validationTextarea" class="label">Sở Thích</label>
+                                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                                <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
+                                                <label class="btn btn-outline-dark" for="btncheck1">Thể thao</label>
+
+                                                <input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off">
+                                                <label class="btn btn-outline-dark" for="btncheck2">Game</label>
+
+                                                <input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off" >
+                                                <label class="btn btn-outline-dark" for="btncheck3" >Xem phim</label>
+
+                                            </div>
+                                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                                <input type="checkbox" class="btn-check" id="btncheck4" autocomplete="off">
+                                                <label class="btn btn-outline-dark" for="btncheck4">Mua sắm</label>
+
+                                                <input type="checkbox" class="btn-check" id="btncheck5" autocomplete="off">
+                                                <label class="btn btn-outline-dark" for="btncheck5">Đọc Sách</label>
+
+                                                <input type="checkbox" class="btn-check" id="btncheck6" autocomplete="off" >
+                                                <label class="btn btn-outline-dark " for="btncheck6" >Nghe nhạc</label>
+
+                                            </div>
+                                            <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                                                <input type="checkbox" class="btn-check" id="btncheck7" autocomplete="off">
+                                                <label class="btn btn-outline-dark" for="btncheck7">Ăn uống</label>
+
+                                                <input type="checkbox" class="btn-check" id="btncheck8" autocomplete="off">
+                                                <label class="btn btn-outline-dark" for="btncheck8">Khám phá</label>
+
+                                                <input type="checkbox" class="btn-check" id="btncheck9" autocomplete="off" >
+                                                <label class="btn btn-outline-dark" for="btncheck9" >Du lịch</label>
+
+                                            </div>
+                                        </div>
+
+                                        <div class="group">
+                                            <label for="validationTextarea" class="label">Ảnh Của Bạn</label>
+                                            <input type="file" name="avartar">
+                                        </div>
+                                        <div class="form-check group">
+                                            <input type="checkbox" class="form-check-input" id="validationFormCheck1" required>
+                                            <label class="form-check-label" for="validationFormCheck1">Đồng Ý</label>
+                                            <div class="invalid-feedback">Bạn Có Đồng Ý Với Tất Cả Điều Khoảng Của Công Ty Về Ứng Dụng Không?</div>
+                                        </div>
+                                        <button type="submit" class="btn">Thêm</button>
+                                    </form>
+                                    <div class="hr"></div>
+                                </div>
+                                <div class="modal-footer row">
+                                    <button type="button" class="btn" data-bs-dismiss="modal">Thoát</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+{{#each users}}
+        <div class="messages">
+            <div class="avatar">
+                <img style="width: 50px" src="uploads/{{this.avartar}}">
+            </div>
+            <div class="message">
+                <div class="user"><div>{{this.username}}</div></div>
+                <div class="text"><div>{{this.date}}</div></div>
+                <div class="text"><div>{{this.mail_sdt}}</div></div>
+                <div class="text"><div>{{this.introduce_yourself}}</div></div>
+            </div>
+            <div class="message">
+                <button style="width: 80px; " class=" btn-outline-dark" type="button"><a href="./updateUser/{{this._id}}" style="text-decoration: none; color: gray">UPDATE</a></button>
+                <button style="margin-top: 4px; width: 80px" class=" btn-outline-dark" type="button"> <a style="text-decoration: none; color: gray" onclick="return confirm('Xác nhận xóa người dùng')" href="/deleteUsers/{{this._id}}">DELETE</a></button>
+            </div>
+        </div>
+{{/each}}
+
+    </div>
+    <div class="content">
+        <div class="card">
+            <div class="user">
+                <img
+                        class="user"
+                        src="team_7.jpg"
+                        alt=""
+                />
+                <div class="profile">
+                    <div class="name">Ngọc Đức <span>20</span></div>
+                    <div class="local">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>1 km</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <div class="no">
+                <i class="fas fa-times"></i>
+            </div>
+            <div class="star">
+                <i class="fas fa-star fa"></i>
+            </div>
+            <div class="heart">
+                <i class="fas fa-heart"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<

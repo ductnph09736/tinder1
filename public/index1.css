@@ -1,0 +1,181 @@
+body {
+    display: block;
+    color:#edf3ff;
+    background:#c8c8c8;
+    background:url(team-5.jpg) fixed;
+    background-size: cover;
+
+}
+::-webkit-scrollbar {
+    display: none;
+}
+.btn{
+    margin-top: 5px;
+    width:150px;
+    color:#fff;
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    background:black;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10px;
+}
+.btn-outline-primary,
+.btn.btn-primary{
+    text-transform: uppercase ;
+    width:250px;
+    color:#fff;
+    display:block;
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(255,255,255,.1);
+    background:#fd7e14;
+    font-size: 25px;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
+}
+.btn:hover{
+    background:#4f5050;
+    color: black;
+}
+.btn.btn-primary{
+    background:black;
+    color: white;
+    margin-top: 10px;
+}
+.btn.btn-primary:hover{
+    background:#4f5050;
+    color: black;
+}
+.btn-outline-primary:hover{
+    background:#ffcd39;
+    color: #6f42c1;
+}
+
+.row.d-flex.justify-content-center.align-items-center {
+    height: 100%;
+    min-height: 100%;
+    margin-top: 300px;
+    margin-bottom: 500px;
+}
+
+.col-xl-4{
+    border-radius: 20px;
+    margin:auto;
+    max-width:510px;
+    min-height:300px;
+    position:relative;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+#content{
+    padding-top: 50px;
+    background-color: white;
+    color: black;
+    box-shadow: 0px 5px 50px #f0f0f0 inset;
+
+
+}
+.modal-body{
+    min-height:345px;
+    position:relative;
+    -webkit-perspective:1000px;
+    perspective:1000px;
+    -webkit-transform-style:preserve-3d;
+    transform-style:preserve-3d;
+}
+.modal-content{
+    width:100%;
+    height:100%;
+    position:absolute;
+    padding:90px 70px 50px 70px;
+    background-color: rgba(255, 255, 255, 1);
+}
+.modal-dialog.modal-dialog-centered{
+    width: 100%;
+    max-width:510px;
+    min-height:600px;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+
+.modal-body .group{
+    margin-bottom:15px;
+}
+.modal-body .group .label{
+    width:100%;
+    color:white;
+    display:block;
+    margin-bottom: 5px;
+
+}
+.modal-body .group .input{
+    border:none;
+    padding:15px 20px;
+    border-radius:25px;
+    background:rgba(0,0,0,.1);
+    width: 350px;
+    color: #000000;
+}
+.btn-close{
+    background-color: #f0f0f0;
+}
+.logo{
+    margin-right: 30px;
+}
+.logo-1{
+    margin-right: 185px;
+}
+.modal-title{
+    color: white;
+}
+.modal-dialog{
+    width: 100%;
+    max-width:800px;
+    min-height:1300px;
+    box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.table{
+    margin-top: 50px;
+    margin-right: 50px;
+}
+#link{
+    margin: 50px;
+}
+.align-content-center{
+
+    margin: 50px;
+    margin-top: 10px;
+}
+.text-uppercase{
+    font-weight: bold;
+}
+.pt-2,
+.form-outline{
+    margin-top: 15px;
+}
+.text{
+    text-decoration: none;
+    color: #1c1f23;
+}
+.text:hover{
+    color: black;
+    font-weight: bold;
+}
+#page-content{
+    margin: 15px;
+}
+.news{
+    margin: 15px;
+}
+
+
+
+
+
+
+
