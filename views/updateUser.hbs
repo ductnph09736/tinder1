@@ -2,11 +2,11 @@
 <base href="http://localhost:8000">
 
 <form action="./updateUser" method="post" enctype="multipart/form-data">
-    <a name="_id" href="">{{dulieu._id}}</a>
-    <input name="usernameUD" value="{{dulieu.userName}}" placeholder="user Name">
-    <input name="dateUD" value="{{dulieu.date}}" placeholder="ngay sinh">
-    <input name="mail_sdtUD" value="{{dulieu.mail_sdt}}" placeholder="mail">
-    <input name="introduce_yourselfUD" value="{{dulieu.introduce_yourself}}" placeholder="GT ban than">
+    <input type="hidden" name="id" value={{dulieu._id}}>
+    <input name="username" value="{{dulieu.username}}" placeholder="user Name">
+    <input name="date" value="{{dulieu.date}}" placeholder="ngay sinh">
+    <input name="mail_sdt" value="{{dulieu.mail_sdt}}" placeholder="mail">
+    <input name="introduce_yourself" value="{{dulieu.introduce_yourself}}" placeholder="GT ban than">
     <input name="avartar" type="file" value="{{dulieu.avartar}}" >
     <button type="submit">Save</button>
 </form>

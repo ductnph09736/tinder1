@@ -130,12 +130,12 @@ router.post('/updateUser',function (req,res) {
     }else {
       if(!req.file){
         console.log('name:'+req.body.usernameUD)
-        userConnect.updateOne(req.body._id,{
-          username: req.body.usernameUD,
-          date: req.body.dateUD,
-          mail_sdt: req.body.mail_sdtUD,
+        userConnect.findOneAndUpdate({_id:req.body.id},{
+          username: req.body.username,
+          date: req.body.date,
+          mail_sdt: req.body.mail_sdt,
           sex : req.body.sex,
-          introduce_yourself: req.body.introduce_yourselfUD,
+          introduce_yourself: req.body.introduce_yourself,
         },function (err) {
           if(err){
             console.log(err)
@@ -146,12 +146,12 @@ router.post('/updateUser',function (req,res) {
       }else {
 
         console.log('name2:'+req.body.usernameUD)
-        userConnect.updateOne(req.body._id,{
-          username: req.body.usernameUD,
-          date: req.body.dateUD,
-          mail_sdt: req.body.mail_sdtUD,
+        userConnect.findOneAndUpdate({_id:req.body.id},{
+          username: req.body.username,
+          date: req.body.date,
+          mail_sdt: req.body.mail_sdt,
           sex : req.body.sex,
-          introduce_yourself: req.body.introduce_yourselfUD,
+          introduce_yourself: req.body.introduce_yourself,
           avartar: req.file.filename,
         },function (err) {
           if(err){
