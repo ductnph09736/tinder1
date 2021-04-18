@@ -129,7 +129,6 @@ router.post('/updateUser',function (req,res) {
 
     }else {
       if(!req.file){
-        console.log('name:'+req.body.usernameUD)
         userConnect.findOneAndUpdate({_id:req.body.id},{
           username: req.body.username,
           date: req.body.date,
